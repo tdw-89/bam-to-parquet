@@ -1,0 +1,25 @@
+[package]
+name = "bam-to-parquet"
+version = "0.1.0"
+edition = "2024"
+build = "build.rs"
+
+[[bin]]
+name = "bam-to-parquet"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1.0"
+arrow = { version = "60.0.0", default-features = false }
+chrono = { version = "0.4", features = ["serde"] }
+clap = { version = "4.5", features = ["derive"] }
+noodles-bam = "0.95.0"
+noodles-bgzf = { version = "0.51.0", features = ["libdeflate"] }
+noodles-sam = "0.90.0"
+parquet = { version = "60.0.0", features = ["arrow", "snap", "zstd"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[dev-dependencies]
+noodles-core = "0.20.0"
+tempfile = "3.24.0"
